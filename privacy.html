@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d29">
+<title>Политика конфиденциальности — Кубок знаний</title>
+<meta name="description" content="Политика конфиденциальности приложения «Кубок знаний»: какие данные обрабатываются, зачем нужны разрешения, работа в локальной сети, контакты.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kubok-znaniy.ru/privacy.html">
+<style>
+:root{
+  --accent:#2ee6c8; --accent-2:#2fb4f2; --accent-ink:#05241d;
+  --accent-soft:rgba(46,230,200,.14); --accent-ring:rgba(46,230,200,.55);
+  --grad-cta:linear-gradient(135deg,#3df2d2,#28c2ee);
+  --text:#f2f3ff; --text-mid:rgba(238,240,255,.85);
+  --text-dim:rgba(238,240,255,.62); --text-faint:rgba(238,240,255,.60);
+  --bg:#0b0d29; --stroke:rgba(255,255,255,.13); --stroke-soft:rgba(255,255,255,.07);
+  --glass:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
+  --glass-inset:rgba(9,11,32,.45);
+  --bg-page:
+    radial-gradient(900px 620px at 88% -10%, rgba(122,92,255,.38), transparent 62%),
+    radial-gradient(720px 540px at -14% 22%, rgba(46,230,200,.13), transparent 60%),
+    radial-gradient(1000px 760px at 50% 118%, rgba(88,62,226,.30), transparent 64%),
+    linear-gradient(168deg,#1c1442 0%,#131138 46%,#0b0d29 100%);
+  --r-m:16px; --r-l:20px; --r-xl:26px; --r-pill:999px;
+  --font-main:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-cond:"Roboto Condensed","Arial Narrow","Segoe UI Condensed",sans-serif-condensed,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--font-main);color:var(--text);background:var(--bg);background-image:var(--bg-page);
+  background-attachment:fixed;-webkit-font-smoothing:antialiased;line-height:1.6;
+  hyphens:none;overflow-wrap:normal;word-break:normal;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:100%;max-width:760px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--accent-ring);outline-offset:2px;border-radius:6px}
+
+.site-header{border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(11,13,41,.72);position:sticky;top:0;z-index:10}
+.header-inner{display:flex;align-items:center;gap:12px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;color:var(--text)}
+.brand-mark{width:34px;height:34px;flex:none;filter:drop-shadow(0 0 10px rgba(46,230,200,.35))}
+.brand-mark svg{width:100%;height:100%}
+.back{margin-left:auto;font-size:15px;color:var(--text-mid)}
+.back:hover{color:var(--text)}
+
+main{padding:40px 0 24px}
+h1{font-size:30px;font-weight:800;line-height:1.15;margin-bottom:10px;text-wrap:balance}
+@media(min-width:700px){ h1{font-size:38px} }
+.updated{font-family:var(--font-cond);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.lead{color:var(--text-mid);font-size:17px;margin-bottom:28px}
+.card{background:var(--glass);border:1px solid var(--stroke);border-radius:var(--r-xl);padding:24px;margin-bottom:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 44px rgba(0,0,0,.28)}
+.card h2{font-size:19px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.card h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(46,230,200,.6);flex:none}
+.card p{color:var(--text-mid);font-size:15px;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card ul{margin:0 0 10px 0;padding-left:20px;color:var(--text-mid);font-size:15px}
+.card li{margin-bottom:6px}
+.card li:last-child{margin-bottom:0}
+.card b{color:var(--text)}
+.mail{font-weight:700}
+footer{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding:22px 0 40px}
+.footer-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:13px;color:var(--text-faint)}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="kzGold" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#ffe9a8"/><stop offset=".4" stop-color="#ffc94d"/><stop offset=".7" stop-color="#e8962c"/><stop offset="1" stop-color="#b26a12"/>
+    </linearGradient>
+    <clipPath id="kzCupClip">
+      <path clip-rule="evenodd" d="M12 3 H18 V5 H21 V8 C 21 10.5 19 12.5 16.6 12.9 C 15.4 13.9 14.1 15.5 13 16.9 V19 L14.2 19 L16.4 20.2 H7.6 L9.8 19 H11 V16.9 C 9.9 15.5 8.6 13.9 7.4 12.9 C 5 12.5 3 10.5 3 8 V5 H6 V3 Z M18 7 V10.8 C 19.2 10.4 20 9.3 20 8 V7 Z M6 7 V10.8 C 4.8 10.4 4 9.3 4 8 V7 Z"/>
+    </clipPath>
+    <symbol id="i-logo" viewBox="0 0 200 200">
+      <g transform="translate(100 100) scale(0.62) translate(-260.5 -256)">
+        <g transform="translate(0 10.9)">
+          <g transform="translate(256 288) scale(11) translate(-12 -12)">
+            <path fill="url(#kzGold)" fill-rule="evenodd" d="M12 3 H18 V5 H21 V8 C 21 10.5 19 12.5 16.6 12.9 C 15.4 13.9 14.1 15.5 13 16.9 V19 L14.2 19 L16.4 20.2 H7.6 L9.8 19 H11 V16.9 C 9.9 15.5 8.6 13.9 7.4 12.9 C 5 12.5 3 10.5 3 8 V5 H6 V3 Z M18 7 V10.8 C 19.2 10.4 20 9.3 20 8 V7 Z M6 7 V10.8 C 4.8 10.4 4 9.3 4 8 V7 Z"/>
+            <g clip-path="url(#kzCupClip)"><path d="M10.6 6.3 L11.5 8.2 L13.4 9.1 L11.5 10 L10.6 11.9 L9.7 10 L7.8 9.1 L9.7 8.2 Z" fill="#ffe9a8" opacity=".95"/></g>
+          </g>
+          <g transform="translate(0 16)">
+            <path d="M196 150 L316 150 L316 194 C 292 210 220 210 196 194 Z" fill="#7c5cff" stroke="#35d9c0" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M256 96 L392 138 L256 180 L120 138 Z" fill="#7c5cff" stroke="#35d9c0" stroke-width="4" stroke-linejoin="round"/>
+            <circle cx="256" cy="138" r="8" fill="#35d9c0"/>
+            <path d="M392 138 L392 196" stroke="#35d9c0" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="392" cy="202" r="9" fill="#35d9c0"/>
+            <path d="M388 208 L384 234 M396 208 L400 234" stroke="#35d9c0" stroke-width="4" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#i-logo"/></svg></span>
+      Кубок знаний
+    </a>
+    <a class="back" href="index.html">← Назад к приложению</a>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Политика конфиденциальности</h1>
+  <div class="updated">Обновлено: 19 октября 2026 г.</div>
+  <p class="lead">«Кубок знаний» — локальная викторина для компании. Игра проходит в вашей Wi-Fi сети, без внешних игровых серверов. Здесь описано, какие данные обрабатывает приложение и зачем нужны разрешения.</p>
+
+  <section class="card">
+    <h2><span class="dot" aria-hidden="true"></span>Какие данные собираются</h2>
+    <p>Приложение использует аналитику (<b>AppMetrica</b> и <b>MyTracker</b>), чтобы понимать, как оно работает, и улучшать его. Собираются только технические сведения:</p>
+    <ul>
+      <li>установки и запуски приложения;</li>
+      <li>игровые сессии (факт и длительность, без содержимого вопросов и ответов);</li>
+      <li>сведения о сбоях (крэшах);</li>
+      <li>версия операционной системы и версия приложения.</li>
+    </ul>
+    <p><b>Персональные данные не отправляются на серверы.</b> Имя и аватар вы вводите сами — они хранятся на вашем устройстве и передаются только игрокам в вашей Wi-Fi сети. Телефон, e-mail и учётная запись не запрашиваются.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="dot" aria-hidden="true"></span>Зачем нужны разрешения</h2>
+    <ul>
+      <li><b>Камера</b> — чтобы сканировать QR-код и подключаться к игре.</li>
+      <li><b>Местоположение</b> — чтобы показать имя Wi-Fi сети (Android отдаёт имя сети только с этим разрешением). Само местоположение не определяется и не сохраняется.</li>
+      <li><b>Уведомления</b> — чтобы показывать статус игры, когда приложение свёрнуто.</li>
+    </ul>
+    <p>Разрешения запрашиваются только при необходимости и не используются для сбора персональных данных.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="dot" aria-hidden="true"></span>Локальная сеть</h2>
+    <p>Игра идёт в вашей локальной Wi-Fi сети: игрок-ведущий запускает игру на своём телефоне, остальные подключаются к ней. Игровые данные (имена игроков, ответы, очки) передаются только внутри вашей сети и не покидают её.</p>
+    <p>Профиль (имя и аватар) и настройки хранятся только на вашем устройстве.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="dot" aria-hidden="true"></span>Реклама</h2>
+    <p>Сейчас приложение не показывает рекламу. В дальнейшем возможно её появление.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="dot" aria-hidden="true"></span>Контакты</h2>
+    <p>По вопросам, связанным с обработкой данных, пишите: <a class="mail" href="mailto:fr33man495@gmail.com">fr33man495@gmail.com</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Кубок знаний</span>
+    <span>Автор: Valera Freeman</span>
+  </div>
+</footer>
+
+</body>
+</html>
