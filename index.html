@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -348,7 +348,7 @@ body.modal-open{overflow:hidden}
         <h1>Кубок Знаний&nbsp;– викторина для компании</h1>
         <p class="lead">Провести время весело и с пользой&nbsp;– это просто: игрок-ведущий запускает игру на своём телефоне, а остальные игроки подключаются по QR-коду со своих телефонов&nbsp;— без установки и без интернета</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" data-apk="phone" href="https://github.com/valera-freeman/bitva-znaniy-apk/releases/latest">
+          <a class="btn btn-primary" data-apk="phone" href="https://github.com/valera-freeman/kubok-znaniy-apk/releases/latest">
             <svg aria-hidden="true"><use href="#i-download"/></svg>Скачать для Android
           </a>
           <a class="btn btn-ghost" href="#how">Как играть</a>
@@ -494,14 +494,14 @@ body.modal-open{overflow:hidden}
         <div class="card dl-card primary">
           <h3><svg aria-hidden="true"><use href="#i-android"/></svg>Приложение для телефона</h3>
           <p>Хост-приложение: игрок-ведущий создаёт игру, раздаёт QR-код, запускает игру и играет с остальными.</p>
-          <a class="btn btn-primary" data-apk="phone" href="https://github.com/valera-freeman/bitva-znaniy-apk/releases/latest">
+          <a class="btn btn-primary" data-apk="phone" href="https://github.com/valera-freeman/kubok-znaniy-apk/releases/latest">
             <svg aria-hidden="true"><use href="#i-download"/></svg>Скачать для Android
           </a>
         </div>
         <div class="card dl-card">
           <h3><svg aria-hidden="true"><use href="#i-tv"/></svg>Приложение для Android TV</h3>
           <p>Необязательно: показывает процесс игры на экране телевизора.</p>
-          <a class="btn btn-ghost" data-apk="tv" href="https://github.com/valera-freeman/bitva-znaniy-apk/releases/latest">
+          <a class="btn btn-ghost" data-apk="tv" href="https://github.com/valera-freeman/kubok-znaniy-apk/releases/latest">
             <svg aria-hidden="true"><use href="#i-download"/></svg>Скачать для Android TV
           </a>
         </div>
@@ -517,7 +517,7 @@ body.modal-open{overflow:hidden}
         <h2>Три шага до игры</h2>
       </div>
       <ol class="install">
-        <li><a class="inline-link" data-apk="phone" href="https://github.com/valera-freeman/bitva-znaniy-apk/releases/latest">Скачайте приложение</a> на телефон игрока-ведущего.</li>
+        <li><a class="inline-link" data-apk="phone" href="https://github.com/valera-freeman/kubok-znaniy-apk/releases/latest">Скачайте приложение</a> на телефон игрока-ведущего.</li>
         <li>Откройте файл и разрешите установку из «неизвестных источников», если Android спросит.</li>
         <li>Нажмите «Установить», откройте приложение и создайте игру.</li>
       </ol>
@@ -643,8 +643,8 @@ const siteConfig = {
   descriptor: 'Локальная викторина для компании. Играйте вместе, рядом и без интернета.',
   baseUrl: 'https://kubok-znaniy.ru',
   download: '',
-  files: { phone: 'BitvaZnaniy-phone.apk', tv: 'BitvaZnaniy-tv.apk' },
-  githubRepo: 'valera-freeman/bitva-znaniy-apk',
+  files: { phone: 'KubokZnaniy-phone.apk', tv: 'KubokZnaniy-tv.apk' },
+  githubRepo: 'valera-freeman/kubok-znaniy-apk',
   contacts: { mail: 'fr33man495@gmail.com' },
 };
 
@@ -721,8 +721,8 @@ const set = (sel, u) => { if (u) document.querySelectorAll(sel).forEach((a) => {
     if (!CFG.phone || !(await head(CFG.phone))) {
       const rel = await (await fetch(api, { headers: { Accept: 'application/vnd.github+json' } })).json();
       const pick = (re) => ((rel.assets || []).find((a) => re.test(a.name)) || {}).browser_download_url;
-      set('[data-apk="phone"]', pick(/^BitvaZnaniy-phone-.*\.apk$/i));
-      set('[data-apk="tv"]', pick(/^BitvaZnaniy-tv-.*\.apk$/i));
+      set('[data-apk="phone"]', pick(/^(?:Kubok|Bitva)Znaniy-phone-.*\.apk$/i));
+      set('[data-apk="tv"]', pick(/^(?:Kubok|Bitva)Znaniy-tv-.*\.apk$/i));
     }
   } catch (e) { /* тихо: кнопки остаются со своими href */ }
 })();
@@ -765,3 +765,4 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal
 </script>
 </body>
 </html>
+
