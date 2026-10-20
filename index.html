@@ -262,7 +262,12 @@ h3{font-size:18px}
 .rel-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:6px}
 .rel-head b{color:var(--text);font-size:16px}
 .rel-head span{color:var(--accent);font-size:13.5px;font-weight:700;font-family:var(--font-cond);letter-spacing:.03em;white-space:nowrap}
-.rel p{color:var(--text-dim);font-size:14px;white-space:pre-line}
+.rel p{color:var(--text-dim);font-size:14px;margin:0 0 8px}
+.rel p:last-child{margin-bottom:0}
+.rel .rel-h{color:var(--text);font-weight:800;font-size:14.5px;margin:14px 0 6px}
+.rel ul{margin:0 0 10px;padding-left:20px;color:var(--text-dim);font-size:14px}
+.rel li{margin:0 0 4px}
+.rel li::marker{color:var(--accent)}
 body.modal-open{overflow:hidden}
 
 /* ── Появление блоков при докрутке ── */
@@ -736,11 +741,31 @@ async function loadUpdates() {
   try {
     const rels = await (await fetch(apiReleases, { headers: { Accept: 'application/vnd.github+json' } })).json();
     if (!Array.isArray(rels) || !rels.length) { body.innerHTML = '<p class="muted">Пока нет опубликованных обновлений.</p>'; return; }
+    // лёгкая разметка описания релиза: абзацы, списки, подзаголовки, жирный текст
+    const mdLite = (text) => {
+      const inline = (s) => esc(s).replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+      const out = [];
+      let inList = false;
+      for (const raw of text.split('\n')) {
+        const line = raw.trim();
+        if (!line) { if (inList) { out.push('</ul>'); inList = false; } continue; }
+        if (/^[-•]\s+/.test(line)) {
+          if (!inList) { out.push('<ul>'); inList = true; }
+          out.push('<li>' + inline(line.replace(/^[-•]\s+/, '')) + '</li>');
+          continue;
+        }
+        if (inList) { out.push('</ul>'); inList = false; }
+        if (/^#{1,4}\s+/.test(line)) { out.push('<p class="rel-h">' + inline(line.replace(/^#{1,4}\s+/, '')) + '</p>'); continue; }
+        out.push('<p>' + inline(line) + '</p>');
+      }
+      if (inList) out.push('</ul>');
+      return out.join('');
+    };
     body.innerHTML = rels.map((r) => {
       const date = r.published_at ? new Date(r.published_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
       const notes = (r.body || '').trim();
       return '<article class="rel"><div class="rel-head"><b>' + esc(r.name || r.tag_name || '') + '</b><span>' + esc(date) + '</span></div>' +
-        (notes ? '<p>' + esc(notes) + '</p>' : '') + '</article>';
+        (notes ? '<div class="rel-notes">' + mdLite(notes) + '</div>' : '') + '</article>';
     }).join('');
     typograph(body);
   } catch (e) {
@@ -765,4 +790,5 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal
 </script>
 </body>
 </html>
+
 
