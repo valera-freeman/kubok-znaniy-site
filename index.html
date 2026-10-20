@@ -257,8 +257,8 @@ h3{font-size:18px}
 .modal-body p{margin-bottom:12px}
 .modal-body p:last-child{margin-bottom:0}
 .muted{color:var(--text-faint)}
-.rel{padding:14px 0;border-bottom:1px solid var(--stroke-soft)}
-.rel:last-child{border-bottom:0;padding-bottom:0}
+.rel{padding:0}
+.rel + .rel{margin-top:22px;padding-top:20px;border-top:1px solid var(--stroke)}
 .rel-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:6px}
 .rel-head b{color:var(--text);font-size:16px}
 .rel-head span{color:var(--accent);font-size:13.5px;font-weight:700;font-family:var(--font-cond);letter-spacing:.03em;white-space:nowrap}
@@ -790,5 +790,6 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal
 </script>
 </body>
 </html>
+
 
 
